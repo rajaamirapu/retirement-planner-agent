@@ -50,5 +50,7 @@ form.addEventListener('submit', async (event) => {
     <p class="kpi"><strong>Monthly Investment:</strong> ${currency(data.investmentPlan.amount)}</p>
     <p class="kpi"><strong>Expected Returns:</strong> ${(data.investmentPlan.expectedReturns * 100).toFixed(2)}%</p>
     <p class="kpi"><strong>Duration:</strong> ${data.investmentPlan.duration} years</p>
+    <p class="kpi"><strong>Risk Profile:</strong> ${data.investmentPlan.riskProfile || 'Balanced'}</p>
+    <p class="kpi"><strong>AI Insight:</strong> ${data.investmentPlan.aiSummary || 'No insight available.'}</p>
   `;
 });
