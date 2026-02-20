@@ -5,8 +5,9 @@
   "main": "src/main.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/main.js",
-    "test": "jest"
+    "start": "npm run build && node dist/uiServer.js",
+    "test": "jest",
+    "start:cli": "node dist/main.js"
   },
   "dependencies": {
     "typescript": "^4.5.4",
