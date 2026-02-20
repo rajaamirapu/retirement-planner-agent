@@ -1,33 +1,43 @@
 import { RetirementAgent } from './agents/retirementAgent';
-import { InvestmentAgent } from './agents/investmentAgent';
-import { LoanService } from './services/loanService';
-import { SalaryService } from './services/salaryService';
-import { InvestmentService } from './services/investmentService';
-import { DocumentParser } from './parsers/documentParser';
-
-const loanService = new LoanService();
-const salaryService = new SalaryService();
-const investmentService = new InvestmentService();
-const documentParser = new DocumentParser();
-
-const retirementAgent = new RetirementAgent(loanService, salaryService, investmentService);
-const investmentAgent = new InvestmentAgent(salaryService, loanService, investmentService);
+import { LoanModel } from './models/loan';
+import { Salary, calculateNetSalary } from './models/salary';
 
 // Example usage
 const userInputs = {
     salary: 50000,
+    deductions: 5000,
     loanDetails: {
         amount: 200000,
         interestRate: 7.5,
-        tenure: 15
+        tenure: 15 * 12
     },
     currentSavings: 100000,
     expectedExpenses: 30000,
-    retirementAge: 65
+    retirementAge: 65,
+    currentAge: 30
 };
 
-const retirementPlan = retirementAgent.assessRetirementNeeds(userInputs);
-const investmentPlan = investmentAgent.createInvestmentPlan(userInputs.salary, userInputs.loanDetails);
+const salary: Salary = {
+    grossSalary: userInputs.salary,
+    deductions: userInputs.deductions,
+    netSalary: 0
+};
+salary.netSalary = calculateNetSalary(salary);
 
-console.log('Retirement Plan:', retirementPlan);
+const loan = new LoanModel(
+    userInputs.loanDetails.amount,
+    userInputs.loanDetails.interestRate,
+    userInputs.loanDetails.tenure
+);
+
+const retirementAgent = new RetirementAgent(salary, [loan]);
+const retirementNeeds = retirementAgent.assessRetirementNeeds(
+    userInputs.currentSavings,
+    userInputs.expectedExpenses,
+    userInputs.retirementAge,
+    userInputs.currentAge
+);
+const investmentPlan = retirementAgent.generateRetirementPlan();
+
+console.log('Retirement Needs:', retirementNeeds);
 console.log('Investment Plan:', investmentPlan);

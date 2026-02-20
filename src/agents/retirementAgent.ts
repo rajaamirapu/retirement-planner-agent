@@ -15,8 +15,8 @@ export class RetirementAgent {
         this.investmentAgent = new InvestmentAgent();
     }
 
-    assessRetirementNeeds(currentSavings: number, expectedExpenses: number, retirementAge: number): number {
-        return calculateRetirementNeeds(currentSavings, expectedExpenses, retirementAge);
+    assessRetirementNeeds(currentSavings: number, expectedExpenses: number, retirementAge: number, currentAge: number): number {
+        return calculateRetirementNeeds(currentSavings, expectedExpenses, retirementAge, currentAge);
     }
 
     generateRetirementPlan(): InvestmentPlan {
