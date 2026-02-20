@@ -53,7 +53,7 @@ const handlePlanRequest = async (req: IncomingMessage, res: ServerResponse): Pro
       input.retirementAge,
       input.currentAge,
     );
-    const investmentPlan = retirementAgent.generateRetirementPlan();
+    const investmentPlan = await retirementAgent.generateRetirementPlan();
 
     sendJson(res, 200, {
       retirementNeeds,

@@ -8,6 +8,7 @@ The Retirement Planner Agent is a comprehensive tool designed to help users plan
 - **Loan Management**: Manage loan documents, calculate Equated Monthly Installments (EMIs), and assess loan eligibility.
 - **Salary Management**: Handle salary data and calculate disposable income after loan payments.
 - **Investment Planning**: Analyze investment options and project future returns based on user inputs.
+- **LangGraph AI Flavor**: Uses a LangGraph-style workflow to infer a risk profile and produce an AI-style investment insight summary.
 - **Web UI**: Use a responsive form-driven interface to generate your plan in the browser.
 
 ## Project Structure

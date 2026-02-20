@@ -37,7 +37,11 @@ const retirementNeeds = retirementAgent.assessRetirementNeeds(
     userInputs.retirementAge,
     userInputs.currentAge
 );
-const investmentPlan = retirementAgent.generateRetirementPlan();
+const run = async (): Promise<void> => {
+    const investmentPlan = await retirementAgent.generateRetirementPlan();
 
-console.log('Retirement Needs:', retirementNeeds);
-console.log('Investment Plan:', investmentPlan);
+    console.log('Retirement Needs:', retirementNeeds);
+    console.log('Investment Plan:', investmentPlan);
+};
+
+run();
