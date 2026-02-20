@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js",
-    "test": "jest"
+    "test": "jest",
+    "start:ui": "npm run build && node dist/uiServer.js"
   },
   "dependencies": {
     "typescript": "^4.5.4",
