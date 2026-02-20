@@ -1,0 +1,30 @@
+{
+  "name": "retirement-planner-agent",
+  "version": "1.0.0",
+  "description": "A retirement planner agent that assesses retirement needs and creates investment plans based on salary and loan EMIs.",
+  "main": "src/main.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4",
+    "jest": "^27.0.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/retirement-planner-agent.git"
+  },
+  "keywords": [
+    "retirement",
+    "investment",
+    "financial planning"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
