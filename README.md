@@ -1,40 +1,46 @@
 # Retirement Planner Agent
 
 ## Overview
-The Retirement Planner Agent is a comprehensive tool designed to help users plan for their retirement by assessing their financial situation, managing loan documents, and creating personalized investment plans. This project integrates various services and agents to provide a seamless experience for users looking to secure their financial future.
+The Retirement Planner Agent is a comprehensive tool designed to help users plan for their retirement by assessing their financial situation, managing loan documents, and creating personalized investment plans. This project now includes a browser-based UI for entering inputs and viewing calculated retirement and investment guidance.
 
 ## Features
 - **Retirement Assessment**: Evaluate retirement needs based on user inputs and generate a tailored retirement plan.
 - **Loan Management**: Manage loan documents, calculate Equated Monthly Installments (EMIs), and assess loan eligibility.
 - **Salary Management**: Handle salary data and calculate disposable income after loan payments.
 - **Investment Planning**: Analyze investment options and project future returns based on user inputs.
+- **Web UI**: Use a responsive form-driven interface to generate your plan in the browser.
 
 ## Project Structure
 ```
 retirement-planner-agent
+├── public
+│   ├── index.html              # Browser UI
+│   ├── styles.css              # UI styling
+│   └── app.js                  # Front-end behavior
 ├── src
-│   ├── main.ts                # Entry point of the application
+│   ├── main.ts                 # CLI-style example entry point
+│   ├── uiServer.ts             # HTTP server for UI + planning API
 │   ├── agents
-│   │   ├── retirementAgent.ts  # Class for assessing retirement needs
-│   │   └── investmentAgent.ts   # Class for creating investment plans
+│   │   ├── retirementAgent.ts
+│   │   └── investmentAgent.ts
 │   ├── services
-│   │   ├── loanService.ts       # Service for managing loans
-│   │   ├── salaryService.ts     # Service for managing salary data
-│   │   └── investmentService.ts  # Service for analyzing investments
+│   │   ├── loanService.ts
+│   │   ├── salaryService.ts
+│   │   └── investmentService.ts
 │   ├── parsers
-│   │   └── documentParser.ts    # Class for parsing loan documents
+│   │   └── documentParser.ts
 │   ├── calculators
-│   │   ├── emiCalculator.ts      # Function for calculating EMIs
-│   │   └── retirementCalculator.ts # Function for estimating retirement needs
+│   │   ├── emiCalculator.ts
+│   │   └── retirementCalculator.ts
 │   ├── models
-│   │   ├── loan.ts              # Model for loan-related data
-│   │   ├── salary.ts            # Model for salary-related data
-│   │   └── investmentPlan.ts     # Model for investment plans
+│   │   ├── loan.ts
+│   │   ├── salary.ts
+│   │   └── investmentPlan.ts
 │   └── types
-│       └── index.ts             # TypeScript interfaces and types
-├── package.json                 # npm configuration file
-├── tsconfig.json                # TypeScript configuration file
-└── README.md                    # Project documentation
+│       └── index.ts
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
 ## Installation
@@ -46,21 +52,27 @@ retirement-planner-agent
    ```
    cd retirement-planner-agent
    ```
-3. Install the dependencies:
+3. Install dependencies:
    ```
    npm install
    ```
 
 ## Usage
-To run the application, execute the following command:
+### Run the UI
+```bash
+npm run start:ui
 ```
-npm start
+Then open `http://localhost:3000` in your browser.
+
+### Run the TypeScript build only
+```bash
+npm run build
 ```
 
-Follow the prompts to input your financial information and receive personalized retirement and investment plans.
-
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
+### Run tests
+```bash
+npm test
+```
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
